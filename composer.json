@@ -1,0 +1,23 @@
+{
+  "name": "vendasta/godaddy",
+  "description": "Vendasta godaddy library for PHP",
+  "type": "library",
+  "require": {
+    "grpc/grpc": "^v1.1.0",
+    "guzzlehttp/guzzle": "^6.3",
+    "mdanter/ecc": "^0.5.0",
+    "vendasta/vax": "^1.2.0",
+    "google/protobuf": "^3.9.2",
+    "google/common-protos": "^1.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Vendasta\\Godaddy\\V1\\": "src/",
+      "Godaddy\\V1\\": "generated/grpc/Godaddy/V1/",
+      "GPBMetadata\\Godaddy\\V1\\": "generated/grpc/GPBMetadata/Godaddy/V1/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7"
+  }
+}

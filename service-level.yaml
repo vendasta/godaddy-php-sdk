@@ -1,0 +1,5 @@
+services:
+  - name: godaddy-php-sdk
+    owner: lucky-charms
+    language: php
+    nonServiceType: library
