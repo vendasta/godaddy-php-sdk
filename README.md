@@ -18,7 +18,7 @@ This is Vendasta's official PHP SDK for API integration of godaddy.
 Install the requirements from above, then:
 
 ```bash
-composer require vendasta/godaddy-php-sdk
+composer require vendasta/godaddy
 ```
 
 ## Authentication
