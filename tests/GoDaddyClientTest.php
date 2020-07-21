@@ -20,10 +20,7 @@ class GoDaddyClientTest extends TestCase
         try {
             $resp = $client->GetDomainAvailable($req);
         } catch (Vendasta\Vax\SDKException $e) {
-            self::assertFalse(
-                true,
-                'unexpected error',
-            );
+            self::fail('unexpected error');
             return;
         }
 
