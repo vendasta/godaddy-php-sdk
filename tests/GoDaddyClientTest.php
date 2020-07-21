@@ -8,7 +8,10 @@ class GoDaddyClientTest extends TestCase
 {
     public function testGetDomainAvailableWhenDomainIsTaken()
     {
-        $environment = "DEMO";
+        $environment = getenv("ENVIRONMENT");
+        if ($environment == null) {
+            $environment = "DEMO";
+        }
         $client = new GodaddyClient($environment);
 
         $req = new GetDomainAvailableRequest();

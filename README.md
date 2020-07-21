@@ -35,12 +35,24 @@ export VENDASTA_APPLICATION_CREDENTIALS=<path to credentials.json>
 
 It is highly recommended that you use a singleton client instance. Each client initilization will open it's own connection, therefore using a singleton results in reusing a connection, saving time and resources.
 
+Set an environment variable:
+
+```bash
+export ENVIRONMENT=<DEMO or PROD> 
+```
+
 To instantiate the client:
 
 ```php
-$environment = "DEMO"; // "PROD" for production environment
+$environment = getenv("ENVIRONMENT");
+if ($environment == null) {
+    $environment = "DEMO";
+}
+
 $client = new Vendasta\Godaddy\V1\GoDaddyClient($environment);
 ```
+
+Notice that the environment will be set to DEMO if it is not specified.
 
 ## Getting domain availability
 ```php
