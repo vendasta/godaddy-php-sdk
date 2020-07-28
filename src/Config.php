@@ -15,12 +15,6 @@ class Config
             'scope' => 'https://godaddy-api-demo.vendasta-internal.com',
             'url' => 'https://godaddy-api-demo.vendasta-internal.com',
             'secure' => true,
-        ],
-        "LOCAL" => [
-            'host' => 'http://godaddy-api.vendasta-local.com',
-            'scope' => 'http://godaddy-api.vendasta-local.com',
-            'url' => 'http://godaddy-api.vendasta-local.com',
-            'secure' => false,
         ]
     ];
 }
