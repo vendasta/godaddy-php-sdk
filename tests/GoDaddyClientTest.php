@@ -44,33 +44,33 @@ class GoDaddyClientTest extends TestCase
         $req = new ReplaceDNSRecordsForTypeRequest();
 
         $dnsRecord = new DNSRecord();
-        $dnsRecord->setType("TXT");
-        $dnsRecord->setName("@");
-        $dnsRecord->setData("some token");
+        $dnsRecord->setType("CNAME");
+        $dnsRecord->setName("www");
+        $dnsRecord->setData("@");
         $dnsRecord->setTtl(3600);
 
         $dnsRecord2 = new DNSRecord();
-        $dnsRecord2->setType("TXT");
-        $dnsRecord2->setName("@");
-        $dnsRecord2->setData("111.111.111.111");
+        $dnsRecord2->setType("CNAME");
+        $dnsRecord2->setName("_domainconnect");
+        $dnsRecord2->setData("_domainconnect.ss.domaincontrol.com");
         $dnsRecord2->setTtl(3600);
 
         $var = array($dnsRecord, $dnsRecord2);
         $req->setDnsRecords($var);
 
-        $req->setDomain("example.com");
-        $req->setType("TXT");
+        $req->setDomain("testdomain352634.com");
+        $req->setType("CNAME");
 
         try {
             $resp = $client->ReplaceDNSRecordsForType($req);
         } catch (Vendasta\Vax\SDKException $e) {
-            self::fail('unexpected error');
+            self::fail($e);
             return;
         }
 
         self::assertEmpty(
             $resp,
-            'expected error to be null',
+            'expected response to be empty',
         );
     }
 }
