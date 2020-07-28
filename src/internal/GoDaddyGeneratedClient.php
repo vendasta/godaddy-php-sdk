@@ -65,4 +65,16 @@ class GoDaddyGeneratedClient
     {
         return $this->transport->GetDomainAvailable($req, $options);
     }
+
+    /**
+     * @param \Godaddy\V1\ReplaceDNSRecordsForTypeRequest $req proto request message
+     * @param array $options optional options, possible keys:
+     *              \Vendasta\Vax\RequestOptions::*
+     * @return \Google\Protobuf\GPBEmpty proto response message
+     * @throws \Vendasta\Vax\SDKException if this call encounters an error
+     */
+    public function ReplaceDNSRecordsForType(\Godaddy\V1\ReplaceDNSRecordsForTypeRequest $req, array $options = []): \Google\Protobuf\GPBEmpty
+    {
+        return $this->transport->ReplaceDNSRecordsForType($req, $options);
+    }
 }

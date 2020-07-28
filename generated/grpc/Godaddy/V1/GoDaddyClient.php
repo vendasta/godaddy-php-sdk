@@ -30,4 +30,19 @@ class GoDaddyClient extends \Grpc\BaseStub {
         $metadata, $options);
     }
 
+    /**
+     * @param \Godaddy\V1\ReplaceDNSRecordsForTypeRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function ReplaceDNSRecordsForType(\Godaddy\V1\ReplaceDNSRecordsForTypeRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/godaddy.v1.GoDaddy/ReplaceDNSRecordsForType',
+        $argument,
+        ['\Google\Protobuf\Empty', 'decode'],
+        $metadata, $options);
+    }
+
+
+
 }
