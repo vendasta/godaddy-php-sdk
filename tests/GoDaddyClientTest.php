@@ -68,9 +68,10 @@ class GoDaddyClientTest extends TestCase
             return;
         }
 
-        self::assertEmpty(
+        self::assertEquals(
+            new Google\Protobuf\GPBEmpty(),
             $resp,
-            'expected response to be empty',
+            'expected response to be GPBEmpty()',
         );
     }
 }
