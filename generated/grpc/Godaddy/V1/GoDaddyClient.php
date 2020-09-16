@@ -43,6 +43,16 @@ class GoDaddyClient extends \Grpc\BaseStub {
             $metadata, $options);
     }
 
-
-
+    /**
+     * @param \Godaddy\V1\ListDNSRecordsRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function ListDNSRecords(\Godaddy\V1\ListDNSRecordsRequest $argument,
+                                   $metadata = [], $options = []) {
+        return $this->_simpleRequest('/godaddy.v1.GoDaddy/ListDNSRecords',
+            $argument,
+            ['\Godaddy\V1\ListDNSRecordsResponse', 'decode'],
+            $metadata, $options);
+    }
 }

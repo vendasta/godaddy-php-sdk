@@ -3,12 +3,40 @@
 use PHPUnit\Framework\TestCase;
 use Godaddy\V1\GetDomainAvailableRequest;
 use Godaddy\V1\ReplaceDNSRecordsForTypeRequest;
+use Godaddy\V1\ListDNSRecordsRequest;
 use Godaddy\V1\DNSRecord;
+use Godaddy\V1\DNSRecordType;
 use Vendasta\Godaddy\V1\GoDaddyClient;
 
 
 class GoDaddyClientTest extends TestCase
 {
+    public function testListDNSRecords()
+    {
+        $environment = getenv("ENVIRONMENT");
+        if ($environment == null) {
+            $environment = "DEMO";
+        }
+        $client = new GodaddyClient($environment);
+
+        $req = new ListDNSRecordsRequest();
+        $req->setDomain("domainName.com");
+        $req->setType(DNSRecordType::DNS_RECORD_TYPE_TXT);
+
+        try {
+            $resp = $client->ListDNSRecords($req);
+        } catch (Vendasta\Vax\SDKException $e) {
+            self::fail('unexpected error');
+            return;
+        }
+
+        self::assertArrayHasKey(
+            0,
+            $resp->getDnsRecords(),
+            'expected response to have at least one record',
+        );
+    }
+
     public function testGetDomainAvailableWhenDomainIsTaken()
     {
         $environment = getenv("ENVIRONMENT");
