@@ -77,4 +77,16 @@ class GoDaddyGeneratedClient
     {
         return $this->transport->ReplaceDNSRecordsForType($req, $options);
     }
+
+    /**
+     * @param \Godaddy\V1\ListDNSRecordsRequest $req proto request message
+     * @param array $options optional options, possible keys:
+     *              \Vendasta\Vax\RequestOptions::*
+     * @return \Godaddy\V1\ListDNSRecordsResponse proto response message
+     * @throws \Vendasta\Vax\SDKException if this call encounters an error
+     */
+    public function ListDNSRecords(\Godaddy\V1\ListDNSRecordsRequest $req, array $options = []): \Godaddy\V1\ListDNSRecordsResponse
+    {
+        return $this->transport->ListDNSRecords($req, $options);
+    }
 }
