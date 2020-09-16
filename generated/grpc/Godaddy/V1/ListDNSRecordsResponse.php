@@ -57,4 +57,3 @@ class ListDNSRecordsResponse extends \Google\Protobuf\Internal\Message
     }
 
 }
-

@@ -50,4 +50,3 @@ class DNSRecordType
      */
     const DNS_RECORD_TYPE_TXT = 8;
 }
-
