@@ -114,7 +114,7 @@ class GoDaddyClientTest extends TestCase
         $client = new GodaddyClient($environment);
 
         $req = new PatchDomainRequest();
-        $req->setDomain("");
+        $req->setDomain("example.com");
         $fieldMask = new FieldMask();
         $paths = ["locked"];
         $fieldMask->setPaths($paths);
