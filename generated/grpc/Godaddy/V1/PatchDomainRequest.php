@@ -30,7 +30,7 @@ class PatchDomainRequest extends \Google\Protobuf\Internal\Message
      * Controls which fields come back on the response
      * </pre>
      *
-     * <code>.vendastatypes.FieldMask field_mask = 8;</code>
+     * <code>.godaddy.v1.FieldMask field_mask = 8;</code>
      */
     private $field_mask = null;
     /**
@@ -77,7 +77,7 @@ class PatchDomainRequest extends \Google\Protobuf\Internal\Message
      * Controls which fields come back on the response
      * </pre>
      *
-     * <code>.vendastatypes.FieldMask field_mask = 8;</code>
+     * <code>.godaddy.v1.FieldMask field_mask = 8;</code>
      */
     public function getFieldMask()
     {
@@ -89,11 +89,11 @@ class PatchDomainRequest extends \Google\Protobuf\Internal\Message
      * Controls which fields come back on the response
      * </pre>
      *
-     * <code>.vendastatypes.FieldMask field_mask = 8;</code>
+     * <code>.godaddy.v1.FieldMask field_mask = 8;</code>
      */
     public function setFieldMask(&$var)
     {
-        GPBUtil::checkMessage($var, \Vendastatypes\FieldMask::class);
+        GPBUtil::checkMessage($var, \Godaddy\V1\FieldMask::class);
         $this->field_mask = $var;
     }
 

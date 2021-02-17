@@ -1,5 +1,7 @@
 <?php
 
+use Godaddy\V1\FieldMask;
+use Godaddy\V1\PatchDomainRequest;
 use PHPUnit\Framework\TestCase;
 use Godaddy\V1\GetDomainAvailableRequest;
 use Godaddy\V1\ReplaceDNSRecordsForTypeRequest;
@@ -33,7 +35,7 @@ class GoDaddyClientTest extends TestCase
         self::assertArrayHasKey(
             0,
             $resp->getDnsRecords(),
-            'expected response to have at least one record',
+            'expected response to have at least one record'
         );
     }
 
@@ -57,7 +59,7 @@ class GoDaddyClientTest extends TestCase
 
         self::assertFalse(
             $resp->getAvailable(),
-            'expected domain to be taken',
+            'expected domain to be taken'
         );
     }
 
@@ -99,7 +101,37 @@ class GoDaddyClientTest extends TestCase
         self::assertEquals(
             new Google\Protobuf\GPBEmpty(),
             $resp,
-            'expected response to be GPBEmpty()',
+            'expected response to be GPBEmpty()'
+        );
+    }
+
+    public function testPatchDomainHappyPath()
+    {
+        $environment = getenv("ENVIRONMENT");
+        if ($environment == null) {
+            $environment = "DEMO";
+        }
+        $client = new GodaddyClient($environment);
+
+        $req = new PatchDomainRequest();
+        $req->setDomain("");
+        $fieldMask = new FieldMask();
+        $paths = ["locked"];
+        $fieldMask->setPaths($paths);
+        $req->setFieldMask($fieldMask);
+        $req->setLocked(false);
+
+        try {
+            $resp = $client->PatchDomain($req);
+        } catch (Vendasta\Vax\SDKException $e) {
+            self::fail($e);
+            return;
+        }
+
+        self::assertEquals(
+            new Google\Protobuf\GPBEmpty(),
+            $resp,
+            'expected response to be GPBEmpty()'
         );
     }
 }
