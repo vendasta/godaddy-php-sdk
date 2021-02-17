@@ -52,7 +52,7 @@ class GoDaddyGRPCClient extends GRPCClient implements GoDaddyClientInterface
     public function ReplaceDNSRecordsForType(\Godaddy\V1\ReplaceDNSRecordsForTypeRequest $req, array $options = []): \Google\Protobuf\GPBEmpty
     {
         return $this->doRequest(
-            array($this->client, 'ReplaceAllDNSRecords'),
+            array($this->client, 'ReplaceDNSRecordsForType'),
             $req,
             $options
         );
