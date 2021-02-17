@@ -23,24 +23,25 @@ class GoDaddyClient extends \Grpc\BaseStub {
      * @param array $options call options
      */
     public function GetDomainAvailable(\Godaddy\V1\GetDomainAvailableRequest $argument,
-                                       $metadata = [], $options = []) {
+      $metadata = [], $options = []) {
         return $this->_simpleRequest('/godaddy.v1.GoDaddy/GetDomainAvailable',
-            $argument,
-            ['\Godaddy\V1\GetDomainAvailableResponse', 'decode'],
-            $metadata, $options);
+        $argument,
+        ['\Godaddy\V1\GetDomainAvailableResponse', 'decode'],
+        $metadata, $options);
     }
 
     /**
+     * Replace all DNS records of the specified type for the specified domain
      * @param \Godaddy\V1\ReplaceDNSRecordsForTypeRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      */
     public function ReplaceDNSRecordsForType(\Godaddy\V1\ReplaceDNSRecordsForTypeRequest $argument,
-                                             $metadata = [], $options = []) {
+      $metadata = [], $options = []) {
         return $this->_simpleRequest('/godaddy.v1.GoDaddy/ReplaceDNSRecordsForType',
-            $argument,
-            ['\Google\Protobuf\Empty', 'decode'],
-            $metadata, $options);
+        $argument,
+        ['\Google\Protobuf\Empty', 'decode'],
+        $metadata, $options);
     }
 
     /**
@@ -54,5 +55,19 @@ class GoDaddyClient extends \Grpc\BaseStub {
             $argument,
             ['\Godaddy\V1\ListDNSRecordsResponse', 'decode'],
             $metadata, $options);
+    }
+
+    /**
+     * PatchDomain updates an existing domain based off of fields on the request
+     * @param \Godaddy\V1\PatchDomainRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function PatchDomain(\Godaddy\V1\PatchDomainRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/godaddy.v1.GoDaddy/PatchDomain',
+        $argument,
+        ['\Google\Protobuf\Empty', 'decode'],
+        $metadata, $options);
     }
 }

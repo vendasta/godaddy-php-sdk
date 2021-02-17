@@ -67,15 +67,15 @@ class GoDaddyGeneratedClient
     }
 
     /**
-     * @param \Godaddy\V1\ReplaceDNSRecordsForTypeRequest $req proto request message
+     * @param \Godaddy\V1\ReplaceAllDNSRecordsRequest $req proto request message
      * @param array $options optional options, possible keys:
      *              \Vendasta\Vax\RequestOptions::*
      * @return \Google\Protobuf\GPBEmpty proto response message
      * @throws \Vendasta\Vax\SDKException if this call encounters an error
      */
-    public function ReplaceDNSRecordsForType(\Godaddy\V1\ReplaceDNSRecordsForTypeRequest $req, array $options = []): \Google\Protobuf\GPBEmpty
+    public function ReplaceAllDNSRecords(\Godaddy\V1\ReplaceAllDNSRecordsRequest $req, array $options = []): \Google\Protobuf\GPBEmpty
     {
-        return $this->transport->ReplaceDNSRecordsForType($req, $options);
+        return $this->transport->ReplaceAllDNSRecords($req, $options);
     }
 
     /**
@@ -88,5 +88,17 @@ class GoDaddyGeneratedClient
     public function ListDNSRecords(\Godaddy\V1\ListDNSRecordsRequest $req, array $options = []): \Godaddy\V1\ListDNSRecordsResponse
     {
         return $this->transport->ListDNSRecords($req, $options);
+    }
+
+    /**
+     * @param \Godaddy\V1\PatchDomainRequest $req proto request message
+     * @param array $options optional options, possible keys:
+     *              \Vendasta\Vax\RequestOptions::*
+     * @return \Google\Protobuf\GPBEmpty proto response message
+     * @throws \Vendasta\Vax\SDKException if this call encounters an error
+     */
+    public function PatchDomain(\Godaddy\V1\PatchDomainRequest $req, array $options = []): \Google\Protobuf\GPBEmpty
+    {
+        return $this->transport->PatchDomain($req, $options);
     }
 }

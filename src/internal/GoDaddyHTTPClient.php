@@ -40,17 +40,17 @@ class GoDaddyHTTPClient extends HTTPClient implements GoDaddyClientInterface
     }
 
     /**
-     * Auth wrapper for \Godaddy\V1\GoDaddyClient::ReplaceDNSRecordsForType
-     * @param \Godaddy\V1\ReplaceDNSRecordsForTypeRequest $req proto request message
+     * Auth wrapper for \Godaddy\V1\GoDaddyClient::ReplaceAllDNSRecords
+     * @param \Godaddy\V1\ReplaceAllDNSRecordsRequest $req proto request message
      * @param array $options optional options, possible keys:
      *              \Vendasta\Vax\RequestOptions::*
      * @return \Google\Protobuf\GPBEmpty proto response message
      * @throws \Vendasta\Vax\SDKException if this call encounters an error
      */
-    public function ReplaceDNSRecordsForType(\Godaddy\V1\ReplaceDNSRecordsForTypeRequest $req, array $options = []): \Google\Protobuf\GPBEmpty
+    public function ReplaceAllDNSRecords(\Godaddy\V1\ReplaceAllDNSRecordsRequest $req, array $options = []): \Google\Protobuf\GPBEmpty
     {
         return $this->doRequest(
-            "/godaddy.v1.GoDaddy/ReplaceDNSRecordsForType",
+            "/godaddy.v1.GoDaddy/ReplaceAllDNSRecords",
             $req,
             "\Google\Protobuf\GPBEmpty",
             $options
@@ -71,6 +71,24 @@ class GoDaddyHTTPClient extends HTTPClient implements GoDaddyClientInterface
             "/godaddy.v1.GoDaddy/ListDNSRecords",
             $req,
             "\Godaddy\V1\ListDNSRecordsResponse",
+            $options
+        );
+    }
+
+    /**
+     * Auth wrapper for \Godaddy\V1\GoDaddyClient::PatchDomain
+     * @param \Godaddy\V1\PatchDomainRequest $req proto request message
+     * @param array $options optional options, possible keys:
+     *              \Vendasta\Vax\RequestOptions::*
+     * @return \Google\Protobuf\GPBEmpty proto response message
+     * @throws \Vendasta\Vax\SDKException if this call encounters an error
+     */
+    public function PatchDomain(\Godaddy\V1\PatchDomainRequest $req, array $options = []): \Google\Protobuf\GPBEmpty
+    {
+        return $this->doRequest(
+            "/godaddy.v1.GoDaddy/PatchDomain",
+            $req,
+            "\Google\Protobuf\GPBEmpty",
             $options
         );
     }

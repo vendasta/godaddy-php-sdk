@@ -17,14 +17,14 @@ interface GoDaddyClientInterface
      */
     public function GetDomainAvailable(\Godaddy\V1\GetDomainAvailableRequest $req, array $options = []): \Godaddy\V1\GetDomainAvailableResponse;
     /**
-     * Auth wrapper for \Godaddy\V1\GoDaddyClient::ReplaceDNSRecordsForType
-     * @param \Godaddy\V1\ReplaceDNSRecordsForTypeRequest $req proto request message
+     * Auth wrapper for \Godaddy\V1\GoDaddyClient::ReplaceAllDNSRecords
+     * @param \Godaddy\V1\ReplaceAllDNSRecordsRequest $req proto request message
      * @param array $options optional options, possible keys:
      *              \Vendasta\Vax\RequestOptions::*
      * @return \Google\Protobuf\GPBEmpty proto response message
      * @throws \Vendasta\Vax\SDKException if this call encounters an error
      */
-    public function ReplaceDNSRecordsForType(\Godaddy\V1\ReplaceDNSRecordsForTypeRequest $req, array $options = []): \Google\Protobuf\GPBEmpty;
+    public function ReplaceAllDNSRecords(\Godaddy\V1\ReplaceAllDNSRecordsRequest $req, array $options = []): \Google\Protobuf\GPBEmpty;
     /**
      * Auth wrapper for \Godaddy\V1\GoDaddyClient::ListDNSRecords
      * @param \Godaddy\V1\ListDNSRecordsRequest $req proto request message
@@ -34,4 +34,13 @@ interface GoDaddyClientInterface
      * @throws \Vendasta\Vax\SDKException if this call encounters an error
      */
     public function ListDNSRecords(\Godaddy\V1\ListDNSRecordsRequest $req, array $options = []): \Godaddy\V1\ListDNSRecordsResponse;
+    /**
+     * Auth wrapper for \Godaddy\V1\GoDaddyClient::PatchDomain
+     * @param \Godaddy\V1\PatchDomainRequest $req proto request message
+     * @param array $options optional options, possible keys:
+     *              \Vendasta\Vax\RequestOptions::*
+     * @return \Google\Protobuf\GPBEmpty proto response message
+     * @throws \Vendasta\Vax\SDKException if this call encounters an error
+     */
+    public function PatchDomain(\Godaddy\V1\PatchDomainRequest $req, array $options = []): \Google\Protobuf\GPBEmpty;
 }
