@@ -42,14 +42,14 @@ class GoDaddyGRPCClient extends GRPCClient implements GoDaddyClientInterface
     }
 
     /**
-     * Auth wrapper for \Godaddy\V1\GoDaddyClient::ReplaceAllDNSRecords
-     * @param \Godaddy\V1\ReplaceAllDNSRecordsRequest $req proto request message
+     * Auth wrapper for \Godaddy\V1\GoDaddyClient::ReplaceDNSRecordsForType
+     * @param \Godaddy\V1\ReplaceDNSRecordsForTypeRequest $req proto request message
      * @param array $options optional options, possible keys:
      *              \Vendasta\Vax\RequestOptions::*
      * @return \Google\Protobuf\GPBEmpty proto response message
      * @throws \Vendasta\Vax\SDKException if this call encounters an error
      */
-    public function ReplaceAllDNSRecords(\Godaddy\V1\ReplaceAllDNSRecordsRequest $req, array $options = []): \Google\Protobuf\GPBEmpty
+    public function ReplaceDNSRecordsForType(\Godaddy\V1\ReplaceDNSRecordsForTypeRequest $req, array $options = []): \Google\Protobuf\GPBEmpty
     {
         return $this->doRequest(
             array($this->client, 'ReplaceAllDNSRecords'),

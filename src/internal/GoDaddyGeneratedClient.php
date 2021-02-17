@@ -67,15 +67,15 @@ class GoDaddyGeneratedClient
     }
 
     /**
-     * @param \Godaddy\V1\ReplaceAllDNSRecordsRequest $req proto request message
+     * @param \Godaddy\V1\ReplaceDNSRecordsForTypeRequest $req proto request message
      * @param array $options optional options, possible keys:
      *              \Vendasta\Vax\RequestOptions::*
      * @return \Google\Protobuf\GPBEmpty proto response message
      * @throws \Vendasta\Vax\SDKException if this call encounters an error
      */
-    public function ReplaceAllDNSRecords(\Godaddy\V1\ReplaceAllDNSRecordsRequest $req, array $options = []): \Google\Protobuf\GPBEmpty
+    public function ReplaceDNSRecordsForType(\Godaddy\V1\ReplaceDNSRecordsForTypeRequest $req, array $options = []): \Google\Protobuf\GPBEmpty
     {
-        return $this->transport->ReplaceAllDNSRecords($req, $options);
+        return $this->transport->ReplaceDNSRecordsForType($req, $options);
     }
 
     /**
