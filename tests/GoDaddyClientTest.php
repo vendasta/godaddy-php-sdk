@@ -155,9 +155,9 @@ class GoDaddyClientTest extends TestCase
         }
 
         self::assertEquals(
-            new Google\Protobuf\GPBEmpty(),
-            $resp,
-            'expected response to be GPBEmpty()'
+            "example.com",
+            $resp->getDomain()->getDomain(),
+            'expected to get back response'
         );
     }
 }
