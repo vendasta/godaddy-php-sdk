@@ -60,3 +60,18 @@ $req = new Godaddy\V1\GetDomainAvailableRequest();
 $req->setDomain("<domain>");
 $resp = $client->GetDomainAvailable($req);
 ```
+
+## Patching domains
+
+This can be used to lock or unlock a domain
+
+```php
+$req = new PatchDomainRequest();
+$req->setDomain("example.com");
+$fieldMask = new FieldMask();
+$paths = ["locked"];
+$fieldMask->setPaths($paths);
+$req->setFieldMask($fieldMask);
+$req->setLocked(false);
+$resp = $client->PatchDomain($req);
+```

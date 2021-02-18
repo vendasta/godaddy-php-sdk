@@ -74,4 +74,21 @@ class GoDaddyGRPCClient extends GRPCClient implements GoDaddyClientInterface
             $options
         );
     }
+
+    /**
+     * Auth wrapper for \Godaddy\V1\GoDaddyClient::PatchDomain
+     * @param \Godaddy\V1\PatchDomainRequest $req proto request message
+     * @param array $options optional options, possible keys:
+     *              \Vendasta\Vax\RequestOptions::*
+     * @return \Google\Protobuf\GPBEmpty proto response message
+     * @throws \Vendasta\Vax\SDKException if this call encounters an error
+     */
+    public function PatchDomain(\Godaddy\V1\PatchDomainRequest $req, array $options = []): \Google\Protobuf\GPBEmpty
+    {
+        return $this->doRequest(
+            array($this->client, 'PatchDomain'),
+            $req,
+            $options
+        );
+    }
 }

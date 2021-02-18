@@ -10,7 +10,7 @@ use Google\Protobuf\Internal\GPBUtil;
 
 /**
  * <pre>
- * Checks if a domain is available
+ * Request for getting if a domain is available
  * </pre>
  *
  * Protobuf type <code>godaddy.v1.GetDomainAvailableRequest</code>

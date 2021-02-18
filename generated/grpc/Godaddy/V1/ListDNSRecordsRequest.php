@@ -10,7 +10,7 @@ use Google\Protobuf\Internal\GPBUtil;
 
 /**
  * <pre>
- * Lists DNS records for a domain
+ * Request for listing DNS records
  * </pre>
  *
  * Protobuf type <code>godaddy.v1.ListDNSRecordsRequest</code>

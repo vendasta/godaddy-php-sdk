@@ -10,7 +10,7 @@ use Google\Protobuf\Internal\GPBUtil;
 
 /**
  * <pre>
- * Replace all DNS records of the specified type for the specified domain
+ * Request for replacing DNS records for a specific type of record
  * </pre>
  *
  * Protobuf type <code>godaddy.v1.ReplaceDNSRecordsForTypeRequest</code>

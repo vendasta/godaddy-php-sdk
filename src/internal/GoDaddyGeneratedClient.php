@@ -89,4 +89,16 @@ class GoDaddyGeneratedClient
     {
         return $this->transport->ListDNSRecords($req, $options);
     }
+
+    /**
+     * @param \Godaddy\V1\PatchDomainRequest $req proto request message
+     * @param array $options optional options, possible keys:
+     *              \Vendasta\Vax\RequestOptions::*
+     * @return \Google\Protobuf\GPBEmpty proto response message
+     * @throws \Vendasta\Vax\SDKException if this call encounters an error
+     */
+    public function PatchDomain(\Godaddy\V1\PatchDomainRequest $req, array $options = []): \Google\Protobuf\GPBEmpty
+    {
+        return $this->transport->PatchDomain($req, $options);
+    }
 }

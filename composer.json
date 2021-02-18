@@ -1,6 +1,6 @@
 {
   "name": "vendasta/godaddy",
-  "description": "Vendasta godaddy library for PHP",
+  "description": "PHP library for Vendasta's Godaddy service",
   "type": "library",
   "require": {
     "grpc/grpc": "^v1.1.0",
