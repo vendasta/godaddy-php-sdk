@@ -146,7 +146,7 @@ class Domain extends \Google\Protobuf\Internal\Message
      */
     public function setContactAdmin(&$var)
     {
-        GPBUtil::checkMessage($var, \Godaddy\V1\Domain_ContactAdmin::class);
+        GPBUtil::checkMessage($var, \Godaddy\V1\Domain\ContactAdmin::class);
         $this->contact_admin = $var;
     }
 
@@ -163,7 +163,7 @@ class Domain extends \Google\Protobuf\Internal\Message
      */
     public function setContactBilling(&$var)
     {
-        GPBUtil::checkMessage($var, \Godaddy\V1\Domain_ContactBilling::class);
+        GPBUtil::checkMessage($var, \Godaddy\V1\Domain\ContactBilling::class);
         $this->contact_billing = $var;
     }
 
@@ -180,7 +180,7 @@ class Domain extends \Google\Protobuf\Internal\Message
      */
     public function setContactRegistrant(&$var)
     {
-        GPBUtil::checkMessage($var, \Godaddy\V1\Domain_ContactRegistrant::class);
+        GPBUtil::checkMessage($var, \Godaddy\V1\Domain\ContactRegistrant::class);
         $this->contact_registrant = $var;
     }
 
@@ -197,7 +197,7 @@ class Domain extends \Google\Protobuf\Internal\Message
      */
     public function setContactTech(&$var)
     {
-        GPBUtil::checkMessage($var, \Godaddy\V1\Domain_ContactTech::class);
+        GPBUtil::checkMessage($var, \Godaddy\V1\Domain\ContactTech::class);
         $this->contact_tech = $var;
     }
 
@@ -503,7 +503,7 @@ class Domain extends \Google\Protobuf\Internal\Message
      */
     public function setVerifications(&$var)
     {
-        GPBUtil::checkMessage($var, \Godaddy\V1\Domain_Verifications::class);
+        GPBUtil::checkMessage($var, \Godaddy\V1\Domain\Verifications::class);
         $this->verifications = $var;
     }
 
