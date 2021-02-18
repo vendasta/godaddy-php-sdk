@@ -2,6 +2,7 @@
 
 use Godaddy\V1\FieldMask;
 use Godaddy\V1\PatchDomainRequest;
+use Godaddy\V1\GetDomainRequest;
 use PHPUnit\Framework\TestCase;
 use Godaddy\V1\GetDomainAvailableRequest;
 use Godaddy\V1\ReplaceDNSRecordsForTypeRequest;
@@ -123,6 +124,31 @@ class GoDaddyClientTest extends TestCase
 
         try {
             $resp = $client->PatchDomain($req);
+        } catch (Vendasta\Vax\SDKException $e) {
+            self::fail($e);
+            return;
+        }
+
+        self::assertEquals(
+            new Google\Protobuf\GPBEmpty(),
+            $resp,
+            'expected response to be GPBEmpty()'
+        );
+    }
+
+    public function testGetDomain()
+    {
+        $environment = getenv("ENVIRONMENT");
+        if ($environment == null) {
+            $environment = "DEMO";
+        }
+        $client = new GodaddyClient($environment);
+
+        $req = new GetDomainRequest();
+        $req->setDomain("example.com");
+
+        try {
+            $resp = $client->GetDomain($req);
         } catch (Vendasta\Vax\SDKException $e) {
             self::fail($e);
             return;

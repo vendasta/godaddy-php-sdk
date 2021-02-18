@@ -75,3 +75,13 @@ $req->setFieldMask($fieldMask);
 $req->setLocked(false);
 $resp = $client->PatchDomain($req);
 ```
+
+## Getting domain details
+
+This can be used to get details about a domain including the AuthCode
+
+```php
+$req = new GetDomainRequest();
+$req->setDomain("example.com");
+$resp = $client->PatchDomain($req);
+```

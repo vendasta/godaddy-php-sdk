@@ -70,4 +70,18 @@ class GoDaddyClient extends \Grpc\BaseStub {
         ['\Google\Protobuf\Empty', 'decode'],
         $metadata, $options);
     }
+
+    /**
+     * GetDomain returns the domain object
+     * @param \Godaddy\V1\GetDomainRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function GetDomain(\Godaddy\V1\GetDomainRequest $argument,
+                              $metadata = [], $options = []) {
+        return $this->_simpleRequest('/godaddy.v1.GoDaddy/GetDomain',
+            $argument,
+            ['\Godaddy\V1\GetDomainResponse', 'decode'],
+            $metadata, $options);
+    }
 }

@@ -92,4 +92,22 @@ class GoDaddyHTTPClient extends HTTPClient implements GoDaddyClientInterface
             $options
         );
     }
+
+    /**
+     * Auth wrapper for \Godaddy\V1\GoDaddyClient::GetDomain
+     * @param \Godaddy\V1\GetDomainRequest $req proto request message
+     * @param array $options optional options, possible keys:
+     *              \Vendasta\Vax\RequestOptions::*
+     * @return \Godaddy\V1\GetDomainResponse proto response message
+     * @throws \Vendasta\Vax\SDKException if this call encounters an error
+     */
+    public function GetDomain(\Godaddy\V1\GetDomainRequest $req, array $options = []): \Godaddy\V1\GetDomainResponse
+    {
+        return $this->doRequest(
+            "/godaddy.v1.GoDaddy/GetDomain",
+            $req,
+            "\Godaddy\V1\GetDomainResponse",
+            $options
+        );
+    }
 }

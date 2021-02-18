@@ -43,4 +43,13 @@ interface GoDaddyClientInterface
      * @throws \Vendasta\Vax\SDKException if this call encounters an error
      */
     public function PatchDomain(\Godaddy\V1\PatchDomainRequest $req, array $options = []): \Google\Protobuf\GPBEmpty;
+    /**
+     * Auth wrapper for \Godaddy\V1\GoDaddyClient::GetDomain
+     * @param \Godaddy\V1\GetDomainRequest $req proto request message
+     * @param array $options optional options, possible keys:
+     *              \Vendasta\Vax\RequestOptions::*
+     * @return \Godaddy\V1\GetDomainResponse proto response message
+     * @throws \Vendasta\Vax\SDKException if this call encounters an error
+     */
+    public function GetDomain(\Godaddy\V1\GetDomainRequest $req, array $options = []): \Godaddy\V1\GetDomainResponse;
 }
