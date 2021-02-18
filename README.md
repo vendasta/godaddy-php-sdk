@@ -83,5 +83,5 @@ This can be used to get details about a domain including the AuthCode
 ```php
 $req = new GetDomainRequest();
 $req->setDomain("example.com");
-$resp = $client->PatchDomain($req);
+$resp = $client->GetDomain($req);
 ```
