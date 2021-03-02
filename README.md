@@ -57,8 +57,8 @@ Notice that the environment will be set to DEMO if it is not specified.
 ## Provisioning a GoDaddy account
 Provisioning a new GoDaddy account can be done using the [Account Group SDK](https://packagist.org/packages/vendasta/accountgroup) and [Sales Orders SDK](https://packagist.org/packages/vendasta/sales-orders). The Account Group SDK is used to create business accounts in Partner Center. Follow the readme for installation and setup.
 Create is synchronous. It immediately creates the account and returns the account group ID for the business you made (used as the business ID in the other SDKs).
-After a business is created you can use the Sales Orders SDK to purchase products on that business (i.e., Google Workspace, GoDaddy, etc.) using the business ID from the Account Group SDK.
-CreateAndActivateOrder is an asynchronous process which can result in approval or rejection from the vendor (i.e., Google Workspace, GoDaddy, etc.). The status of the order can be polled using the GetSalesOrder endpoint given the order ID from CreateAndActivateOrder.
+After a business is created you can use the Sales Orders SDK to purchase products on that business using the business ID from the Account Group SDK.
+CreateAndActivateOrder is an asynchronous process which can result in approval or rejection from the vendor. The status of the order can be polled using the GetSalesOrder endpoint given the order ID from CreateAndActivateOrder.
 
 Production App ID: MP-4TMLZSQ5FMJQX5T75TPC43FQBWD2VXLB
 
@@ -111,6 +111,44 @@ $resp = $salesOrdersClient->CreateAndActivateOrder($req);
 
 // Poll the pending activation process using GetSalesOrder
 ```
+
+## Deprovision an account
+
+```php
+// Choose environment and partnerId
+$env = "DEMO";
+$pid = "";
+
+// Select the app ID and business ID to deactivate
+$businessId = "";
+$appId = "";
+
+// The activation ID will be populated after we list all the products on the business
+$activationId = "";
+
+$client = new AccountsServiceClient($env);
+
+// First list all of the current products activated for that business and find the one matching the appID
+$listReq = new ListRequest();
+$listReq->setPartnerId($pid);
+$listReq->setBusinessId($businessId);
+$resp = $client->List($listReq);
+foreach($resp->getAccounts() as $account) {
+    if ($account->getAppId() == $appId) {
+        // The activation ID is necessary for deactivating an app
+        $activationId = $account->getActivationId();
+    }
+}
+
+// Build the deactivation request with the activation ID
+$deactivationReq = new DeactivateAppRequest();
+$deactivationReq->setBusinessId($businessId);
+$deactivationReq->setAppId($appId);
+$deactivationReq->setActivationId($activationId);
+$deactivationReq->setDeactivationType(DeactivationType::DEACTIVATION_TYPE_CANCEL);
+
+```
+
 ## How to use this SDK
 
 ### Getting domain availability
