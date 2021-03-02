@@ -23,7 +23,7 @@ composer require vendasta/godaddy
 
 ## Authentication
 
-To authenticate your SDK calls, you must provision a service account from within the Vendasta platform.
+To authenticate your SDK calls, you must provision a service account from within the Vendasta platform. Refer to the [service account guide](https://developers.vendasta.com/guides/service-accounts) in order to setup authentication.
 
 You must put this file on your server, and set an environment variable to it's path:
 
@@ -54,14 +54,73 @@ $client = new Vendasta\Godaddy\V1\GoDaddyClient($environment);
 
 Notice that the environment will be set to DEMO if it is not specified.
 
-## Getting domain availability
+## Provisioning a GoDaddy account
+Provisioning a new GoDaddy account can be done using the [Account Group SDK](https://packagist.org/packages/vendasta/accountgroup) and [Sales Orders SDK](https://packagist.org/packages/vendasta/sales-orders). The Account Group SDK is used to create business accounts in Partner Center. Follow the readme for installation and setup.
+Create is synchronous. It immediately creates the account and returns the account group ID for the business you made (used as the business ID in the other SDKs).
+After a business is created you can use the Sales Orders SDK to purchase products on that business (i.e., Google Workspace, GoDaddy, etc.) using the business ID from the Account Group SDK.
+CreateAndActivateOrder is an asynchronous process which can result in approval or rejection from the vendor (i.e., Google Workspace, GoDaddy, etc.). The status of the order can be polled using the GetSalesOrder endpoint given the order ID from CreateAndActivateOrder.
+
+Production App ID: MP-4TMLZSQ5FMJQX5T75TPC43FQBWD2VXLB
+
+Demo environment App ID: MP-NNTJMBF6HPXR5XXC2JKCFWKJ64VZLBFQ
+```php
+// Choose environment and partnerId
+$env = "DEMO";
+$pid = "<PID>";
+
+// Instantiate clients
+$accountGroupClient = new AccountGroupServiceClient($env);
+$salesOrdersClient = new SalesOrdersClient($env);
+
+// Build request to create a business
+$createReq = new CreateAccountGroupRequest();
+$location = new AccountGroupLocation();
+$location->setCompanyName("Test Company");
+$location->setAddress("123 Street Name");
+$location->setCity("Chicago");
+$location->setState("IL");
+$location->setCountry("US");
+$location->setZip("88888");
+$workNumber = array("(999) 999-9999");
+$location->setWorkNumber($workNumber);
+$createReq->setAccountGroupNap($location);
+$createReq->setPartnerId($pid);
+
+// Make call and store returned accountGroupId
+$resp = $accountGroupClient->Create($createReq);
+$accountGroupId = $resp->getAccountGroupId();
+
+// Build sales order request & activate the products
+// Create the request
+$req = new CreateAndActivateOrderRequest();
+
+// Create the line items
+$goDaddy = SalesOrdersUtils::buildLineItem('MP-NNTJMBF6HPXR5XXC2JKCFWKJ64VZLBFQ');
+$lineItems = array($goDaddy);
+
+// Create the custom fields
+$goDaddyCustomField = SalesOrdersUtils::buildGoDaddyCustomFields("MP-NNTJMBF6HPXR5XXC2JKCFWKJ64VZLBFQ", "testdomain123.com", "example@email.com", "First", "Last", "3065555555", "example@email.com", "First", "Last");
+$customFields = array($goDaddyCustomField);
+
+// Create the order
+$order = SalesOrdersUtils::buildOrder($pid, $accountGroupId, $lineItems, $customFields);
+$req->setOrder($order);
+
+// Call CreateAndActivateOrder
+$resp = $salesOrdersClient->CreateAndActivateOrder($req);
+
+// Poll the pending activation process using GetSalesOrder
+```
+## How to use this SDK
+
+### Getting domain availability
 ```php
 $req = new Godaddy\V1\GetDomainAvailableRequest();
 $req->setDomain("<domain>");
 $resp = $client->GetDomainAvailable($req);
 ```
 
-## Patching domains
+### Patching domains
 
 This can be used to lock or unlock a domain
 
@@ -76,7 +135,7 @@ $req->setLocked(false);
 $resp = $client->PatchDomain($req);
 ```
 
-## Getting domain details
+### Getting domain details
 
 This can be used to get details about a domain including the AuthCode
 
