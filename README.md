@@ -1,9 +1,8 @@
-# godaddy-php-sdk
-Godaddy php sdk
+# Vendasta GoDaddy PHP SDK
 
 ## Description
 
-This is Vendasta's official PHP SDK for API integration of godaddy.
+This is Vendasta's official PHP SDK for API integration of GoDaddy.
 
 ## Requirements
 
