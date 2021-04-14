@@ -3,3 +3,4 @@ services:
     owner: lucky-charms
     language: php
     nonServiceType: library
+    description: PHP SDK for the GoDaddy microservice distributed to Packagist
