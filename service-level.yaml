@@ -1,6 +1,6 @@
 services:
   - name: godaddy-php-sdk
-    owner: lucky-charms
+    owner: quackoverflow
     language: php
     nonServiceType: library
     description: PHP SDK for the GoDaddy microservice distributed to Packagist
